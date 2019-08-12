@@ -17,8 +17,8 @@ class JsonCache : Cache<String> {
         }
     }
 
-    override fun put(url: String, bitmap: String) {
-        cache.put(url, bitmap)
+    override fun put(url: String, text: String) {
+        cache.put(url, text)
     }
 
     override fun get(url: String): String? {

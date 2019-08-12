@@ -9,12 +9,13 @@ import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
 open class AbstractFetch<T> {
-    lateinit var cache: Cache<T>
+    var cache: Cache<T>? = null
     internal var executorService: ExecutorService =
         Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors())
     internal val uiHandler: Handler = Handler(Looper.getMainLooper())
+
     fun clearCache() {
-        cache.clear()
+        cache?.clear()
     }
 
     internal fun fetch(url: String): ResponseBody? {

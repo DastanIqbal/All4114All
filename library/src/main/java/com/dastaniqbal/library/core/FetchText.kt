@@ -1,12 +1,17 @@
 package com.dastaniqbal.library.core
 
+import com.dastaniqbal.library.cache.JsonCache
 import com.dastaniqbal.library.request.TextRequest
 import okhttp3.ResponseBody
 
 class FetchText : AbstractFetch<String>() {
 
+    init {
+        cache = JsonCache()
+    }
+
     fun eneque(request: TextRequest) {
-        var cached = cache.get(request.murl)
+        var cached = cache?.get(request.murl)
         if (cached != null) {
             request.callback?.invoke(cached)
         }
@@ -14,7 +19,7 @@ class FetchText : AbstractFetch<String>() {
             val body = fetch(request.murl)
             cached = fetchText(body)
 
-            this.cache.put(request.murl, cached!!)
+            this.cache?.put(request.murl, cached!!)
             uiHandler.post {
                 request.callback?.invoke(cached!!)
             }
