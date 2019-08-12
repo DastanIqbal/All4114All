@@ -3,6 +3,7 @@
     package="com.dastanIqbal.all4one">
 
     <application
+        android:name="com.dastanIqbal.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
