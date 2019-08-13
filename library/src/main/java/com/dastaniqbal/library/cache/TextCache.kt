@@ -3,7 +3,7 @@ package com.dastaniqbal.library.cache
 import androidx.collection.LruCache
 import java.nio.charset.Charset
 
-class JsonCache : Cache<String> {
+class TextCache : Cache<String> {
     private val cache: LruCache<String, String>
 
     init {

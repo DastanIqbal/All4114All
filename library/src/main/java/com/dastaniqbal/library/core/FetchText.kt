@@ -1,13 +1,13 @@
 package com.dastaniqbal.library.core
 
-import com.dastaniqbal.library.cache.JsonCache
+import com.dastaniqbal.library.cache.TextCache
 import com.dastaniqbal.library.request.TextRequest
 import okhttp3.ResponseBody
 
 class FetchText : AbstractFetch<String>() {
 
     init {
-        cache = JsonCache()
+        cache = TextCache()
     }
 
     fun eneque(request: TextRequest) {
