@@ -1,4 +1,4 @@
-package com.dastanIqbal.all4one.ui
+package com.dastanIqbal.all4one.feature
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.dastanIqbal.all4one.R
-import com.dastanIqbal.all4one.ui.adapter.ItemAdapter
+import com.dastanIqbal.all4one.feature.adapter.ItemAdapter
 import com.dastanIqbal.di.Injectable
 import kotlinx.android.synthetic.main.list_fragment.*
 import javax.inject.Inject
@@ -60,8 +60,9 @@ class ListFragment : Fragment(), Injectable {
             })
 
             getData().repoLiveData.observe(viewLifecycleOwner, Observer {
-                val adapter = ItemAdapter(it)
+                val adapter = ItemAdapter()
                 recyclerView.adapter = adapter
+                adapter.submitList(it)
             })
         }
 

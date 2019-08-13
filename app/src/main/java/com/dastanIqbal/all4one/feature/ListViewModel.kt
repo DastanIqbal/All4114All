@@ -1,4 +1,4 @@
-package com.dastanIqbal.all4one.ui
+package com.dastanIqbal.all4one.feature
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

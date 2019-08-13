@@ -14,16 +14,13 @@
  * limitations under the License.
  */
 
-package com.dastanIqbal.di.module
+package com.dastanIqbal.di.adapter
 
-import com.dastanIqbal.all4one.feature.ListFragment
-import dagger.Module
-import dagger.android.ContributesAndroidInjector
+import androidx.databinding.ViewDataBinding
 
-@Suppress("unused")
-@Module
-abstract class FragmentBuildersModule {
-
-    @ContributesAndroidInjector
-    abstract fun contributeListFragment(): ListFragment
-}
+/**
+ * A generic ViewHolder that works with a [ViewDataBinding].
+ * @param <T> The type of the ViewDataBinding.
+</T> */
+class DataBoundViewHolder<out T : ViewDataBinding> constructor(val binding: T) :
+    androidx.recyclerview.widget.RecyclerView.ViewHolder(binding.root)
