@@ -24,8 +24,11 @@ Make sure you [enabled adb debugging][enable-adb] on your device(s).
 
 ## Run Test
 #### Unit Test
+Select ```test/java/com/dastanIqbal/all4one/RepositoryTest``` Right Click-> Run RepositoryTest
 
 #### Instrumentation Test
+Select ```androidTest/java/com/dastanIqbal/all4one/featured/ListFragmentTest``` Right Click-> Run ListFragmentTest
+
 
 ## How to Use Fetch?
 #### Fetch Image
