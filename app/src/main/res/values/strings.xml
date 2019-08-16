@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">All4114All</string>
+    <string name="no_internet">No Internet Connection!!</string>
+    <string name="no_data">No data found</string>
 </resources>

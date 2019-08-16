@@ -16,7 +16,7 @@ class ListViewModel @Inject constructor(private val repo: Repository) : ViewMode
 
     val repoLiveData = MutableLiveData<List<DataM>>()
     val loadingLiveData = MutableLiveData<Boolean>()
-    val errorLiveData = MutableLiveData<Boolean>()
+    val errorLiveData = MutableLiveData<String>()
 
 
     fun getData(): ListViewModel {
@@ -34,7 +34,9 @@ class ListViewModel @Inject constructor(private val repo: Repository) : ViewMode
 
                     override fun onError(e: Throwable) {
                         loadingLiveData.postValue(false)
-                        errorLiveData.postValue(true)
+                        e.message?.run {
+                            errorLiveData.postValue(e.message)
+                        } ?: errorLiveData.postValue("Error: No data found")
                     }
                 })
         )

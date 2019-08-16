@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import com.dastanIqbal.all4one.R
 import com.dastanIqbal.all4one.feature.adapter.ItemAdapter
 import com.dastanIqbal.di.Injectable
+import com.dastanIqbal.utils.hasInternet
 import kotlinx.android.synthetic.main.list_fragment.*
 import javax.inject.Inject
 
@@ -53,16 +54,22 @@ class ListFragment : Fragment(), Injectable {
             })
 
             errorLiveData.observe(viewLifecycleOwner, Observer {
-                if (it) {
-                    progressBar.visibility = View.GONE
-                    tv_error.visibility = View.VISIBLE
-                }
+                progressBar.visibility = View.GONE
+                tv_error.visibility = View.VISIBLE
+                tv_error.text = it
             })
 
-            getData().repoLiveData.observe(viewLifecycleOwner, Observer {
-                val adapter = ItemAdapter()
-                recyclerView.adapter = adapter
-                adapter.submitList(it)
+            hasInternet(requireContext(), success = {
+                repoLiveData.observe(viewLifecycleOwner, Observer {
+                    val adapter = ItemAdapter()
+                    recyclerView.adapter = adapter
+                    adapter.submitList(it)
+                })
+                getData()
+            }, failed = {
+                progressBar.visibility = View.GONE
+                tv_error.visibility = View.VISIBLE
+                tv_error.text = getString(R.string.no_internet)
             })
         }
 
