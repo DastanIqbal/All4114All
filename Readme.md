@@ -1,4 +1,5 @@
-# All4114All Kotlin+Dagger2+Rx+Image,Text,File loading library
+# All4114All Kotlin+Dagger2+Rx
+## Image,Text,File downloading demo
 
 This app just shows how to use Retrofit,Rx with Kotlin
 
