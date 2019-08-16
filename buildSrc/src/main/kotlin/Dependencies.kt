@@ -36,7 +36,7 @@ object CommonVersion {
 }
 
 object BuildPlugins {
-    const val android_gradleplugin = "3.5.0-rc02"
+    const val android_gradleplugin = "3.5.0-rc03"
 
     const val androidGradlePlugin = "com.android.tools.build:gradle:$android_gradleplugin"
     const val kotlinGradlePlugin =
